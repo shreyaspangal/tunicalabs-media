@@ -1,24 +1,37 @@
-import logo from './logo.svg';
+import React from 'react';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import CssBaseline from '@mui/material/CssBaseline';
+
+
+import Header from './components/Header';
+import SideMenu from './components/SideMenu';
+import ViewStudents from './pages/Students/ViewStudents';
+import AddStudent from './pages/Students/AddStudents';
+
+
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Margin } from '@mui/icons-material';
 import './App.css';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box height='100%'>
+      <Box>
+        <Header />
+      </Box>
+      <Box display='flex'>
+        <Box display="flex" height='100vh' sx={{ marginLeft: "2rem", borderRight: "1px solid black" }}>
+          <SideMenu />
+        </Box>
+        <Box sx={{ marginLeft: "2rem" }} width="100%">
+          <ViewStudents />
+          {/* <AddStudent /> */}
+        </Box>
+      </Box>
+      <CssBaseline />
+    </Box>
   );
 }
 
