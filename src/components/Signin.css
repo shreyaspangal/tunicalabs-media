@@ -1,14 +1,13 @@
-.form {
+.signin-form {
     background-color: white;
     border-radius: 10px;
     padding: 2rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    min-width: 80%;
+    min-width: 20%;
     margin: 2rem;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
     height: 370px;
-    /* 70vh */
 }
 
 .title {

@@ -4,13 +4,14 @@ import {
     Stack, TextField, Button, FormGroup,
     FormControlLabel, Checkbox
 } from '@mui/material';
+import { Link } from 'react-router-dom'
 
 export default function Signin() {
 
     // const [value, setValue] = React.useState('');
 
     return (
-        <Stack spacing={2} className="form">
+        <Stack spacing={2} className="signin-form">
             <h2 className="title">Sign In Now</h2>
             <TextField
                 id="email"
@@ -18,10 +19,10 @@ export default function Signin() {
                 variant="outlined"
                 title="email"
                 name="email"
-                placeholder="Enteryour Email"
+                placeholder="Enter your Email"
                 fullWidth
                 required
-                // error
+            // error
             />
             <TextField
                 id="password"
@@ -32,7 +33,7 @@ export default function Signin() {
                 fullWidth
                 placeholder="Enter your password"
                 required
-                // error
+            // error
             />
             <FormGroup>
                 <FormControlLabel control={<Checkbox defaultChecked size="small" sx={{ '& .MuiSvgIcon-root': { fontSize: 20 } }} />} label="I agree to the Terms Of Service" />
@@ -45,9 +46,9 @@ export default function Signin() {
             </Button>
             <p className="secondary-action">
                 Don't have an account?{" "}
-                <a className="link">
+                <Link className="link" to="/signup">
                     Sign Up
-                </a>
+                </Link>
             </p>
         </Stack>
 

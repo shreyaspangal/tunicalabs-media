@@ -4,10 +4,11 @@ import {
     Stack, TextField, Button, FormGroup,
     FormControlLabel, Checkbox
 } from '@mui/material';
+import { Link } from 'react-router-dom'
 
 export default function Signup() {
     return (
-        <Stack spacing={2} className="form">
+        <Stack spacing={2} className="signup-form">
             <h2 className="title">Sign Up Now</h2>
             <TextField
                 id="email"
@@ -15,7 +16,7 @@ export default function Signup() {
                 variant="outlined"
                 title="email"
                 name="email"
-                placeholder="Enter Email"
+                placeholder="Your Email"
                 fullWidth
                 required
             />
@@ -26,7 +27,7 @@ export default function Signup() {
                 name="password"
                 type="password"
                 fullWidth
-                placeholder="Enter a password with minimum 6 characters"
+                placeholder="Your password"
                 required
             />
             <TextField
@@ -36,7 +37,7 @@ export default function Signup() {
                 name="confirm-password"
                 type="password"
                 fullWidth
-                placeholder="Enter a password with minimum 6 characters"
+                placeholder="Confirm password"
                 required
             />
             <FormGroup>
@@ -50,9 +51,9 @@ export default function Signup() {
             </Button>
             <p className="secondary-action">
                 Already have an account?{" "}
-                <a className="link">
+                <Link className="link" to="/signin">
                     Sign In
-                </a>
+                </Link>
             </p>
         </Stack>
 
