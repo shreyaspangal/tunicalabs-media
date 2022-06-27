@@ -37,20 +37,21 @@ export default function Header() {
                             <NotificationsIcon />
                         </Badge>
                     </IconButton>
-                    {/* <AccountCircleIcon /> */}
-                    <Avatar>RJ</Avatar>
-                    <Typography variant="p" sx={{
-                        display: { xs: 'none', md: 'flex' },
-                        fontWeight: 100,
-                        letterSpacing: '2px',
-                        color: 'inherit',
-                        textDecoration: 'none',
-                    }}
-
-                    >Rajan</Typography>
-                    < KeyboardArrowDownIcon />
+                    <Stack direction="row" alignItems="center" spacing={1}>
+                        <Avatar>RJ</Avatar>
+                        <Typography variant="p" sx={{
+                            fontWeight: 100,
+                            letterSpacing: '1px',
+                            color: 'inherit',
+                            textDecoration: 'none',
+                            paddingLeft: ".5rem"
+                        }}
+                        >Rajan</Typography>
+                        < KeyboardArrowDownIcon />
+                    </Stack>
                 </Stack>
-            )}
-        </Box>
+            )
+            }
+        </Box >
     );
 }

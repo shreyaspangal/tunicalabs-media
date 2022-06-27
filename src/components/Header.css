@@ -3,9 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    /* height: 5vh; */
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
-    background: #781715;
     background: #941919;
     color: #ffffff;
   }
@@ -18,5 +16,9 @@
   .noDecoration {
     text-decoration: none;
     color: #ffffff;
+  }
+
+  .css-1q36rmd-MuiStack-root>:not(style)+:not(style){
+    margin-left: 0px !important;
   }
   
