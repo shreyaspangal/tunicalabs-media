@@ -1,12 +1,11 @@
 import React from 'react';
 import Box from "@mui/material/Box";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Avatar, Button, Stack, Typography } from "@mui/material";
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import "./Header.css";
@@ -18,7 +17,9 @@ export default function Header() {
     return (
         <Box className="header">
             <Box className="header-title" sx={{ paddingLeft: "2rem" }}>
-                <h1>TUNICALABS MEDIA</h1>
+                <Link to="/" className='header-link'>
+                    <h1>TUNICALABS MEDIA</h1>
+                </Link>
             </Box>
             {location !== '/' && (
                 <Stack sx={{ paddingRight: "2rem" }}>

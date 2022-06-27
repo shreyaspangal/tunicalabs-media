@@ -1,24 +1,24 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
-    background: #941919;
-    color: #ffffff;
-  }
-  
-  .header-title {
-    cursor: pointer;
-    font-size: 0.6rem;
-  }
-  
-  .noDecoration {
-    text-decoration: none;
-    color: #ffffff;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  background: #941919;
+  color: #ffffff;
+}
 
-  .css-1q36rmd-MuiStack-root>:not(style)+:not(style){
-    margin-left: 0px !important;
-  }
-  
+.header-title {
+  cursor: pointer;
+  font-size: 0.6rem;
+}
+
+.header-link {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* Dropdown icon beside profile avatar */
+.css-1q36rmd-MuiStack-root>:not(style)+:not(style) {
+  margin-left: 0px !important;
+}
