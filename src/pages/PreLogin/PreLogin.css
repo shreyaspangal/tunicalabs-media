@@ -1,0 +1,16 @@
+.content {
+    background-image: url("../../assets/images/prelogin-bg.png");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+
+@media screen and (min-width: 768px) {
+    .content {
+        justify-content: center;
+    }
+}
