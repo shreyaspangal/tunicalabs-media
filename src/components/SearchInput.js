@@ -9,7 +9,7 @@ import DownloadIcon from '@mui/icons-material/Download';
 const schoolNames = [
     {
         value: "school1",
-        label: "School"
+        label: "School 1"
     },
     {
         value: "School2",
@@ -28,7 +28,7 @@ const schoolNames = [
 const classNames = [
     {
         value: "class1",
-        label: "Class"
+        label: "Class 1"
     },
     {
         value: "class2",
@@ -45,20 +45,20 @@ const classNames = [
 ];
 const divisions = [
     {
-        value: "division1",
-        label: "Division"
+        value: "a",
+        label: "A"
     },
     {
-        value: "division2",
-        label: "division 2"
+        value: "b",
+        label: "B"
     },
     {
-        value: "division3",
-        label: "division 3"
+        value: "c",
+        label: "C"
     },
     {
-        value: "division4",
-        label: "division 4"
+        value: "d",
+        label: "D"
     }
 ];
 

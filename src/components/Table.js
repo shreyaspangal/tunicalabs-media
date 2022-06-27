@@ -8,9 +8,6 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 
-import { Link } from "react-router-dom";
-
-
 const columns = [
     { id: "id", label: "ID", minWidth: 40, align: "center" },
     {
@@ -23,14 +20,12 @@ const columns = [
         id: "age",
         label: "Age",
         minWidth: 50,
-        // align: "right",
         format: (value) => value.toLocaleString("en-US")
     },
     {
         id: "school",
         label: "School",
         minWidth: 30,
-        // align: "right",
         format: (value) => value.toLocaleString("en-US")
     },
     {
