@@ -6,6 +6,9 @@ import {
 } from '@mui/material';
 
 export default function Signin() {
+
+    // const [value, setValue] = React.useState('');
+
     return (
         <Stack spacing={2} className="form">
             <h2 className="title">Sign In Now</h2>
@@ -15,9 +18,10 @@ export default function Signin() {
                 variant="outlined"
                 title="email"
                 name="email"
-                placeholder="Enter Email"
+                placeholder="Enteryour Email"
                 fullWidth
                 required
+                // error
             />
             <TextField
                 id="password"
@@ -26,8 +30,9 @@ export default function Signin() {
                 name="password"
                 type="password"
                 fullWidth
-                placeholder="Enter a password with minimum 6 characters"
+                placeholder="Enter your password"
                 required
+                // error
             />
             <FormGroup>
                 <FormControlLabel control={<Checkbox defaultChecked size="small" sx={{ '& .MuiSvgIcon-root': { fontSize: 20 } }} />} label="I agree to the Terms Of Service" />

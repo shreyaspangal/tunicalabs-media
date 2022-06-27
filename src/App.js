@@ -1,46 +1,22 @@
-import React from 'react';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import CssBaseline from '@mui/material/CssBaseline';
-
-
-import Header from './components/Header';
-import SideMenu from './components/SideMenu';
-import ViewStudents from './pages/Students/ViewStudents';
-import AddStudent from './pages/Students/AddStudents';
-import PreLogin from './pages/PreLogin/PreLogin';
-
-
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { Margin } from '@mui/icons-material';
+import React, { Component } from 'react';
+import { Routes, Route } from 'react-router-dom';
+// Page
+import PreLogin from './pages/PreLogin/PreLogin'
+// Component
+import Dashboard from './components/Dashboard';
+// Css
 import './App.css';
 
-const flag = false;
 
 function App() {
 
   return (
-    <Box height='100%'>
-      <Box>
-        <Header />
-      </Box>
-      {flag ? (
-        <Box display='flex'>
-          <Box display="flex" height='100vh' sx={{ marginLeft: "2rem", borderRight: "1px solid black" }}>
-            <SideMenu />
-          </Box>
-          <Box sx={{ marginLeft: "2rem" }} width="100%">
-            {/* <ViewStudents /> */}
-            {/* <AddStudent /> */}
-          </Box>
-        </Box>
-      ) :
-        (
-          <PreLogin />
-        )
-      }
-      <CssBaseline />
-    </Box>
+    <Routes>
+      <Route path="/signup" element={<PreLogin />}></Route>
+      <Route path="/signin" element={<PreLogin />}></Route>
+      <Route path="/viewstudent" element={<Dashboard />}></Route>
+      <Route path="/addstudent" element={<Dashboard />}></Route>
+    </Routes>
   );
 }
 

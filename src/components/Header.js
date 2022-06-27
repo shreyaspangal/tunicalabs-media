@@ -24,7 +24,7 @@ export default function Header() {
                     size="large"
                     aria-label="show 1 new notification"
                     color="inherit"
-                    sx={{ paddingRight: "2rem" }}
+                    sx={{ marginRight: "1.5rem" }}
                 >
                     <Badge badgeContent={1} color="error">
                         <NotificationsIcon />

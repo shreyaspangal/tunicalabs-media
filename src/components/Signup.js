@@ -1,7 +1,7 @@
 import React from 'react';
 import './Signup.css'
 import {
-    Stack, Typography, Box, Avatar, TextField, Button, styled, FormGroup,
+    Stack, TextField, Button, FormGroup,
     FormControlLabel, Checkbox
 } from '@mui/material';
 
