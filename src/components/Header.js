@@ -11,6 +11,8 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import "./Header.css";
 
+const signupPage = false;
+
 export default function Header() {
     return (
         <Box className="header">
