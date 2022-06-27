@@ -171,19 +171,10 @@ export default function SearchInput() {
                         ))}
                     </TextField>
                 </Stack>
-                <SearchButton variant="contained" color="error">
+                <SearchButton variant="contained" color="error" sx={{bgcolor: "#781715"}}>
                     Search
                 </SearchButton>
             </Stack>
-            {/* <Stack sx={{ marginTop: "5rem" }}>
-                <Table />
-            </Stack>
-            <Stack sx={{ marginTop: "3rem" }}>
-                <Button variant="contained" color="error" sx={{ width: "13rem", margin: "0rem", padding: ".5rem .1rem", backgroundColor: "#941919" }}>
-                    Download Excel &nbsp; &nbsp; <DownloadIcon size="small" />
-                </Button>
-            </Stack> */}
-
         </form >
     )
 }

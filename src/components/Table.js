@@ -90,12 +90,12 @@ export default function ColumnGroupingTable() {
                                 <TableCell
                                     key={column.id}
                                     align={column.align}
-                                    style={{ top: 57, minWidth: column.minWidth, color: "#ffff", background: "#941919", borderBottom: "0", fontWeight: 300 }}
+                                    style={{ top: 57, minWidth: column.minWidth, color: "#ffff", background: "#781715", borderBottom: "0", fontWeight: 300 }}
                                 >
                                     {column.label}
                                 </TableCell>
                             ))}
-                            <TableCell align="center" colSpan={2} sx={{ background: "#941919" , borderBottom: "0"}}></TableCell>
+                            <TableCell align="center" colSpan={2} sx={{ background: "#781715", borderBottom: "0" }}></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -103,7 +103,7 @@ export default function ColumnGroupingTable() {
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((row) => {
                                 return (
-                                    <TableRow hover role="checkbox" tabIndex={-1} key={row.code} sx={{ '&:nth-child(odd)': { bgcolor: '#daafaf' } }}>
+                                    <TableRow hover role="checkbox" tabIndex={-1} key={row.code} sx={{ '&:nth-child(odd)': { bgcolor: '#Fbe9e9' } }}>
                                         {columns.map((column) => {
                                             const value = row[column.id];
                                             return (
@@ -114,10 +114,10 @@ export default function ColumnGroupingTable() {
                                                 </TableCell>
                                             );
                                         })}
-                                        <TableCell sx={{ minWidth: 30, paddingRight: "0rem", textAlign: "right", textDecoration: "underline 2px blue", color: 'blue' }}>
+                                        <TableCell sx={{ minWidth: 30, paddingRight: "0rem", textAlign: "right", textDecoration: "underline 2px #5db7e9", color: '#5db7e9' }}>
                                             Edit
                                         </TableCell>
-                                        <TableCell sx={{ minWidth: 30, paddingRight: "0rem", textAlign: "left", textDecoration: "underline 2px blue", color: 'blue' }}>
+                                        <TableCell sx={{ minWidth: 30, paddingRight: "0rem", textAlign: "left", textDecoration: "underline 2px #5db7e9", color: '#5db7e9' }}>
                                             Delete
                                         </TableCell>
                                     </TableRow>
