@@ -1,68 +1,7 @@
 import React from 'react';
-import Table from './Table';
 import { styled } from '@mui/material/styles';
+import { schoolNames, classNames, divisions } from '../DB/data';
 import { Stack, TextField, Button, MenuItem, Grid, Paper, Box } from '@mui/material';
-import DownloadIcon from '@mui/icons-material/Download';
-
-
-//   DATA BEGINS
-const schoolNames = [
-    {
-        value: "school1",
-        label: "School 1"
-    },
-    {
-        value: "School2",
-        label: "School 2"
-    },
-    {
-        value: "School3",
-        label: "School 3"
-    },
-    {
-        value: "School4",
-        label: "School 4"
-    }
-];
-
-const classNames = [
-    {
-        value: "class1",
-        label: "Class 1"
-    },
-    {
-        value: "class2",
-        label: "class 2"
-    },
-    {
-        value: "class3",
-        label: "class 3"
-    },
-    {
-        value: "class4",
-        label: "class 4"
-    }
-];
-const divisions = [
-    {
-        value: "a",
-        label: "A"
-    },
-    {
-        value: "b",
-        label: "B"
-    },
-    {
-        value: "c",
-        label: "C"
-    },
-    {
-        value: "d",
-        label: "D"
-    }
-];
-
-//   DATA ENDS
 
 const SearchButton = styled(Button)({
     boxShadow: "none",
@@ -171,7 +110,7 @@ export default function SearchInput() {
                         ))}
                     </TextField>
                 </Stack>
-                <SearchButton variant="contained" color="error" sx={{bgcolor: "#781715"}}>
+                <SearchButton variant="contained" color="error" sx={{ bgcolor: "#781715" }}>
                     Search
                 </SearchButton>
             </Stack>

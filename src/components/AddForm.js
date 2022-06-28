@@ -1,67 +1,9 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { Stack, TextField, Button, MenuItem, Grid, Paper, Box, Typography } from '@mui/material';
-import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material';
+import { schoolNames, classNames, divisions } from '../DB/data';
+import { Stack, TextField, Button, MenuItem, Typography } from '@mui/material';
+import { Radio, RadioGroup, FormControlLabel, FormControl } from '@mui/material';
 
-
-//   DATA BEGINS
-const schoolNames = [
-    {
-        value: "school1",
-        label: "School"
-    },
-    {
-        value: "School2",
-        label: "School 2"
-    },
-    {
-        value: "School3",
-        label: "School 3"
-    },
-    {
-        value: "School4",
-        label: "School 4"
-    }
-];
-
-const classNames = [
-    {
-        value: "class1",
-        label: "Class"
-    },
-    {
-        value: "class2",
-        label: "class 2"
-    },
-    {
-        value: "class3",
-        label: "class 3"
-    },
-    {
-        value: "class4",
-        label: "class 4"
-    }
-];
-const divisions = [
-    {
-        value: "division1",
-        label: "Division"
-    },
-    {
-        value: "division2",
-        label: "division 2"
-    },
-    {
-        value: "division3",
-        label: "division 3"
-    },
-    {
-        value: "division4",
-        label: "division 4"
-    }
-];
-
-//   DATA ENDS
 
 const SearchButton = styled(Button)({
     boxShadow: "none",
