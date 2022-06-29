@@ -4,11 +4,37 @@ import {
     Stack, TextField, Button, FormGroup,
     FormControlLabel, Checkbox
 } from '@mui/material';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Signin() {
 
-    // const [value, setValue] = React.useState('');
+    const navigate = useNavigate();
+
+    const [formData, setFormData] = React.useState({
+        email: "",
+        password: "",
+    });
+
+    const emailStored = localStorage.getItem("email");
+    const passwordStored = localStorage.getItem("password");
+
+    let handleInput = (e) => {
+        e.preventDefault();
+        const { name, value } = e.target;
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = (data) => {
+        if (data.email === emailStored && data.password === passwordStored) {
+            //Redirect to viewstudent page
+            navigate("/viewstudent");
+        } else {
+            navigate("/signup");
+        }
+    }
 
     return (
         <Stack spacing={2} className="signin-form">
@@ -22,7 +48,9 @@ export default function Signin() {
                 placeholder="Enter your Email"
                 fullWidth
                 required
-            // error
+                value={formData.email}
+                onChange={handleInput}
+                autoComplete="off"
             />
             <TextField
                 id="password"
@@ -33,7 +61,9 @@ export default function Signin() {
                 fullWidth
                 placeholder="Enter your password"
                 required
-            // error
+                value={formData.password}
+                onChange={handleInput}
+                autoComplete="off"
             />
             <FormGroup>
                 <FormControlLabel control={<Checkbox defaultChecked size="small" sx={{ '& .MuiSvgIcon-root': { fontSize: 20 } }} />} label="I agree to the Terms Of Service" />
@@ -41,6 +71,7 @@ export default function Signin() {
             <Button
                 className="button"
                 variant="contained"
+                onClick={() => handleSubmit(formData)}
             >
                 Sign In
             </Button>
