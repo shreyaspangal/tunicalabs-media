@@ -18,7 +18,7 @@ export default function viewStudents() {
             <Stack sx={{ marginTop: "2rem" }}>
                 <Table />
             </Stack>
-            <Stack sx={{ marginTop: "2rem" }}>
+            <Stack sx={{ marginTop: "2rem", marginBottom: "3rem" }}>
                 <Button variant="contained" color="error" sx={{ width: "13rem", margin: "0rem", padding: ".5rem .1rem", backgroundColor: "#781715" }}>
                     Download Excel &nbsp; &nbsp; <DownloadIcon size="small" />
                 </Button>
