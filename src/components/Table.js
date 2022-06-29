@@ -7,60 +7,9 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
+import { Link } from "react-router-dom";
+import { columns, rows } from "../DB/TableData";
 
-const columns = [
-    { id: "id", label: "ID", minWidth: 40, align: "center" },
-    {
-        id: "name",
-        label: "Name",
-        minWidth: 80,
-        format: (value) => value.toLocaleString("en-US")
-    },
-    {
-        id: "age",
-        label: "Age",
-        minWidth: 50,
-        format: (value) => value.toLocaleString("en-US")
-    },
-    {
-        id: "school",
-        label: "School",
-        minWidth: 30,
-        format: (value) => value.toLocaleString("en-US")
-    },
-    {
-        id: "classes",
-        label: "Class",
-        minWidth: 30,
-        align: "right",
-        format: (value) => value.toFixed(0)
-    },
-    {
-        id: "division",
-        label: "Division",
-        minWidth: 50,
-        align: "right"
-    },
-    {
-        id: "status",
-        label: "Status",
-        minWidth: 60,
-        align: "right",
-        format: (value) => value.toLocaleString("en-US")
-    }
-];
-
-function createData(id, name, age, school, classes, division, status) {
-    return { id, name, age, school, classes, division, status };
-}
-
-const rows = [
-    createData(1, "Student Name", 10, "Modal School", 3, "A", "Active"),
-    createData(2, "Student Name", 10, "Modal School", 3, "A", "Active"),
-    createData(3, "Student Name", 10, "Modal School", 3, "A", "Active"),
-    createData(4, "Student Name", 10, "Modal School", 3, "A", "Active"),
-    createData(5, "Student Name", 10, "Modal School", 3, "A", "Active")
-];
 
 export default function ColumnGroupingTable() {
     const [page, setPage] = React.useState(0);
@@ -98,7 +47,7 @@ export default function ColumnGroupingTable() {
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((row) => {
                                 return (
-                                    <TableRow hover role="checkbox" tabIndex={-1} key={row.code} sx={{ '&:nth-child(odd)': { bgcolor: '#Fbe9e9' } }}>
+                                    <TableRow hover role="checkbox" tabIndex={-1} key={row.code} sx={{ '&:nth-of-type(odd)': { bgcolor: '#Fbe9e9' } }}>
                                         {columns.map((column) => {
                                             const value = row[column.id];
                                             return (
@@ -122,7 +71,7 @@ export default function ColumnGroupingTable() {
                 </Table>
             </TableContainer>
             <TablePagination
-                rowsPerPageOptions={[10, 25, 100]}
+                rowsPerPageOptions={[5, 10]}
                 component="div"
                 count={rows.length}
                 rowsPerPage={rowsPerPage}

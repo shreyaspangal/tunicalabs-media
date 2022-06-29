@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 // Page
 import PreLogin from './pages/PreLogin/PreLogin'
@@ -7,7 +7,6 @@ import Dashboard from './components/Dashboard';
 import Home from './components/Home';
 // Css
 import './App.css';
-
 
 function App() {
 

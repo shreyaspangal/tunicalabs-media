@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { schoolNames, classNames, divisions } from '../DB/data';
+import { schoolNames, classNames, divisions } from '../DB/FormData';
 import { Stack, TextField, Button, MenuItem, Typography } from '@mui/material';
 import { Radio, RadioGroup, FormControlLabel, FormControl } from '@mui/material';
 

@@ -8,9 +8,7 @@ import Header from './Header';
 import SideMenu from './SideMenu';
 import ViewStudents from '../pages/Students/ViewStudents';
 import AddStudent from '../pages/Students/AddStudents';
-import PreLogin from '../pages/PreLogin/PreLogin';
 
-const flag = true;
 
 export default function Dashboard() {
 
