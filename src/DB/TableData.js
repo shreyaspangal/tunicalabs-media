@@ -20,7 +20,7 @@ export const columns = [
     },
     {
         id: "classes",
-        label: "Class",
+        label: "Classes",
         minWidth: 30,
         align: "right",
         format: (value) => value.toFixed(0)
@@ -40,7 +40,7 @@ export const columns = [
     }
 ];
 
-function createData(id, name, age, school, classes, division, status) {
+export function createData(id, name, age, school, classes, division, status) {
     return { id, name, age, school, classes, division, status };
 }
 
@@ -56,3 +56,5 @@ export const rows = [
     createData(9, "Funsuk Wangadu", 13, "Modal School", 3, "A", "Active"),
     createData(10, "Priya Patel", 13, "Modal School", 3, "B", "Active"),
 ];
+
+localStorage.setItem('tableData', JSON.stringify(rows));
