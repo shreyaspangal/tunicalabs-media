@@ -19,27 +19,22 @@ export default function Home() {
                 </Typography>
             </Box>
             <Box display="flex" justifyContent="center" alignItems="start" height="40vh">
-                <Stack direction="row" spacing={4}>
+                <Stack direction="column" spacing={4}>
                     <Stack>
-                        <Button variant="contained" onClick={() => { navigate("/signup") }} endIcon={<ChevronRightIcon />}>Go to Signup </Button>
+                        <Button variant="contained" color="error" onClick={() => { navigate("/signup") }} endIcon={<ChevronRightIcon />}>Go to Signup </Button>
                     </Stack>
                     <Stack>
-                        <Button variant="contained" onClick={() => navigate("/signin")} endIcon={<ChevronRightIcon />}>Go to Signin </Button>
+                        <Button variant="contained" color="error" onClick={() => navigate("/signin")} endIcon={<ChevronRightIcon />}>Go to Signin </Button>
                     </Stack>
                     <Stack>
-                        <Button variant="contained" onClick={() => navigate("/viewstudent")} endIcon={<ChevronRightIcon />}>Go to ViewStudent </Button>
+                        <Button variant="contained" color="error" onClick={() => navigate("/viewstudent")} endIcon={<ChevronRightIcon />}>Go to ViewStudent </Button>
                     </Stack>
                     <Stack>
-                        <Button variant="contained" onClick={() => navigate("/addstudent")} endIcon={<ChevronRightIcon />}>Go to AddStudent </Button>
+                        <Button variant="contained" color="error" onClick={() => navigate("/addstudent")} endIcon={<ChevronRightIcon />}>Go to AddStudent </Button>
                     </Stack>
 
                 </Stack>
             </Box >
-            <Box>
-                <Typography variant="h6" component="div" textAlign="center" sx={{ marginTop: "4rem", marginBottom: "4rem", fontFamily: "Roboto", color: "#781715" }}>
-                    NOTE: This page is used for navigation purpose only.
-                </Typography>
-            </Box>
         </>
     )
 }
