@@ -130,7 +130,7 @@ export default function ColumnGroupingTable({ tableData, setTableData }) {
                     </TableHead>
                     <TableBody>
                         {tableData
-                            // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) 
+                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) 
                             .map((row) => {
                                 return (
                                     <>
@@ -144,15 +144,15 @@ export default function ColumnGroupingTable({ tableData, setTableData }) {
                     </TableBody>
                 </Table>
             </TableContainer>
-            {/* <TablePagination
-                rowsPerPageOptions={[5, 10, { label: 'All', value: -1 }]}
+            <TablePagination
+                rowsPerPageOptions={[5, 10]}
                 component="div"
                 count={tableData.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
-            /> */}
+            />
         </form>
     );
 }
