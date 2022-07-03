@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Table from "@mui/material/Table";
+import { Table, Box, Typography } from "@mui/material";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
@@ -10,12 +10,14 @@ import TableRow from "@mui/material/TableRow";
 import { Link } from "react-router-dom";
 // Data
 import { columns, rows } from "../db/TableData";
-// Import Rows
+// Row Components
 import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow";
+// Icons
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 
 
-export default function ColumnGroupingTable({ tableData, setTableData }) {
+export default function ColumnGroupingTable({ tableData, setTableData, searchBtnFlag }) {
 
     // ReadOnly Mode State
     const [editStudentId, setEditStudentId] = useState(null);
@@ -113,7 +115,7 @@ export default function ColumnGroupingTable({ tableData, setTableData }) {
     return (
         <form onSubmit={handleEditFormSubmit}>
             <TableContainer sx={{ maxHeight: 440 }}>
-                <Table aria-label="sticky table">
+                <Table aria-label="sticky table" id="table-id">
                     <TableHead>
                         <TableRow>
                             {columns.map((column) => (
@@ -129,18 +131,30 @@ export default function ColumnGroupingTable({ tableData, setTableData }) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {tableData
-                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) 
-                            .map((row) => {
-                                return (
-                                    <>
-                                        {editStudentId === row.id ?
-                                            <EditableRow row={row} editFormData={editFormData} handleEditFormChange={handleEditFormChange} handleEditFormSubmit={handleEditFormSubmit} handleCancelClick={handleCancelClick} key={row.id} />
-                                            : <ReadOnlyRow row={row} handleEditClick={handleEditClick} handleDeleteClick={handleDeleteClick} key={row.id} />
-                                        }
-                                    </>
-                                );
-                            })}
+                        {
+                            searchBtnFlag === "Failed" ? (
+                                <TableRow sx={{ height: "5rem" }}>
+                                    <TableCell align="center" colSpan={9}>
+                                            <Typography display="flex" justifyContent="center" alignItems="center">
+                                                <SentimentVeryDissatisfiedIcon /> &nbsp; No Data Found!
+                                            </Typography>
+                                    </TableCell>
+                                </TableRow>
+                            ) : (
+                                tableData
+                                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                    .map((row) => {
+                                        return (
+                                            <>
+                                                {editStudentId === row.id ?
+                                                    (<EditableRow row={row} editFormData={editFormData} handleEditFormChange={handleEditFormChange} handleEditFormSubmit={handleEditFormSubmit} handleCancelClick={handleCancelClick} key={row.id} />)
+                                                    : (<ReadOnlyRow row={row} handleEditClick={handleEditClick} handleDeleteClick={handleDeleteClick} key={row.id} searchBtnFlag={searchBtnFlag} />)
+                                                }
+                                            </>
+                                        )
+                                    })
+                            )
+                        }
                     </TableBody>
                 </Table>
             </TableContainer>

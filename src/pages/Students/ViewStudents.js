@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Table from '../../components/Table';
+import Data from '../../db/data.json';
 import SearchInput from '../../components/SearchInput';
-import { Stack, TextField, Button, MenuItem, Grid, Paper, Box, Typography } from '@mui/material';
-import DownloadIcon from '@mui/icons-material/Download';
+import { Stack, Typography } from '@mui/material';
+import TABLETOEXCEL from "react-html-table-to-excel";
+import "./downloadExcelBtn.css";
+
 
 const InitialFValues = {
     name: "",
@@ -14,7 +17,8 @@ const InitialFValues = {
 
 export default function viewStudents({ tableData, setTableData }) {
 
-    const [searchInput, setSearchInput] = React.useState(InitialFValues);
+    const [searchInput, setSearchInput] = useState(InitialFValues);
+    const [searchBtnFlag, setSearchBtnFlag] = useState(false);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -31,19 +35,28 @@ export default function viewStudents({ tableData, setTableData }) {
 
         let findTableRow = newTableData.filter((row) => {
             return (row.name === searchInput.name
-                || Number(row.age) === Number(searchInput.age)
-                || row.school === searchInput.school
-                || row.classes === searchInput.classes
-                || row.division === searchInput.division)
+                && Number(row.age) === Number(searchInput.age)
+                && row.school === searchInput.school
+                && row.classes === searchInput.classes
+                && row.division === searchInput.division)
         });
-        console.log(findTableRow)
-        console.log(searchInput)
-        // Check
+        console.log("Filtered Table => \n", findTableRow)
+        console.log("Seach Input Value => \n", searchInput)
+        // Validate
         if (findTableRow.length === 0) {
             setTableData(tableData) // Throw no match found error
+            setSearchBtnFlag("Failed") // Switch to Remove Btn
         } else {
             setTableData(findTableRow); // Update table rows
+            setSearchBtnFlag(true) // Switch to Remove Btn
         }
+    }
+
+    const handleRemoveClick = (event) => {
+        event.preventDefault();
+        setSearchInput(InitialFValues); // Reset form values
+        setSearchBtnFlag(false) // Switch to Search Btn
+        setTableData(Data); // Re-fill the table with db/data.json data
     }
 
     return (
@@ -52,15 +65,19 @@ export default function viewStudents({ tableData, setTableData }) {
                 <Typography component="h2" color="#Ff0006" m="1.5rem 0" sx={{ fontWeight: "400", fontSize: "22px" }}>View Student</Typography>
             </Stack>
             <Stack >
-                <SearchInput searchInput={searchInput} handleInputChange={handleInputChange} handleSearchClick={handleSearchClick} />
+                <SearchInput searchInput={searchInput} handleInputChange={handleInputChange} handleSearchClick={handleSearchClick} handleRemoveClick={handleRemoveClick} searchBtnFlag={searchBtnFlag} />
             </Stack>
             <Stack sx={{ marginTop: "2rem" }}>
-                <Table tableData={tableData} setTableData={setTableData} />
+                <Table tableData={tableData} setTableData={setTableData} searchBtnFlag={searchBtnFlag} />
             </Stack>
+            {/* Download Excel Table */}
             <Stack sx={{ marginTop: "2rem", marginBottom: "3rem" }}>
-                <Button variant="contained" color="error" sx={{ width: "13rem", margin: "0rem", padding: ".5rem .1rem", backgroundColor: "#781715" }}>
-                    Download Excel &nbsp; &nbsp; <DownloadIcon size="small" />
-                </Button>
+                <TABLETOEXCEL
+                    className="download-excel-btn"
+                    table="table-id"
+                    filename="Student Table Excel"
+                    sheet="Sheet"
+                    buttonText="Download Excel" />
             </Stack>
         </Stack>
     )

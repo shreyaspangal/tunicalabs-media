@@ -1,0 +1,16 @@
+.download-excel-btn {
+    width: 13rem;
+    margin: 0rem;
+    padding: .8rem .1rem;
+    background-color: #781715;
+    color: white;
+    border-color: transparent;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 250ms;
+}
+
+.download-excel-btn:hover {
+    cursor: pointer;
+    background-color: #d32f2f;
+}
