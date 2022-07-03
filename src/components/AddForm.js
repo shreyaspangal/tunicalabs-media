@@ -1,46 +1,57 @@
 import React from 'react';
-import { styled } from '@mui/material/styles';
-import { schoolNames, classNames, divisions } from '../DB/FormData';
+import { schoolNames, classNames, divisions } from '../db/FormData';
+import { columns, rows, createData } from '../db/TableData';
 import { Stack, TextField, Button, MenuItem, Typography } from '@mui/material';
 import { Radio, RadioGroup, FormControlLabel, FormControl } from '@mui/material';
-
-
-const SearchButton = styled(Button)({
-    boxShadow: "none",
-    textTransform: "none",
-    fontSize: 16,
-    padding: "6px 30px",
-    border: "1px solid",
-    borderColor: "transparent",
-    backgroundColor: "#941919",
-    lineHeight: 1.2,
-    fontFamily: ["Open Sans", "sans-serif"]
-});
-
+import { useNavigate } from 'react-router-dom'
 
 const InitialFValues = {
     name: "",
-    date: "",
+    age: "",
     school: "",
-    class: "",
+    classes: "",
     division: "",
     status: "",
 };
 
-export default function SearchInput() {
+export default function AddStudentForm({ tableData, setTableData }) {
 
-    const [values, setValues] = React.useState(InitialFValues);
+    const navigate = useNavigate();
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setValues({
-            ...values,
+    // console.log(tableData)
+
+    const [addFormData, setAddFormData] = React.useState(InitialFValues);
+
+    const handleInputChange = (event) => {
+        event.preventDefault();
+        const { name, value } = event.target;
+        setAddFormData({
+            ...addFormData,
             [name]: value
         });
     }
 
+    const handleAddFormSubmit = (event) => {
+        event.preventDefault();
+
+        const newTableData = {
+            id: tableData.length + 1,
+            name: addFormData.name,
+            age: addFormData.age,
+            school: addFormData.school,
+            classes: addFormData.classes,
+            division: addFormData.division,
+            status: addFormData.status
+        }
+        const newTableRow = [...tableData, newTableData];
+        // Add new table row data
+        setTableData(newTableRow);
+        //Reset form values to empty
+        setAddFormData(InitialFValues)
+    }
+
     return (
-        <form>
+        <form onSubmit={handleAddFormSubmit}>
             <Stack direction="column" width="400px" spacing={4}>
                 <Stack direction="row" alignItems="center" justifyContent="space-between" >
                     <Typography component="h6">
@@ -50,24 +61,27 @@ export default function SearchInput() {
                         name="name"
                         variant="outlined"
                         label="Name"
-                        value={values.name}
+                        value={addFormData.name}
                         size="small"
                         onChange={handleInputChange}
                         sx={{ minWidth: "13rem" }}
+                        required
                     />
                 </Stack>
                 <Stack direction="row" alignItems="center" justifyContent="space-between">
                     <Typography component="h6">
-                        Date Of Birth
+                        Age
                     </Typography>
                     <TextField
                         name="age"
                         variant="outlined"
-                        value={values.date}
+                        label="Age"
+                        value={addFormData.age}
                         size="small"
                         onChange={handleInputChange}
-                        type="date"
+                        type="number"
                         sx={{ minWidth: "13rem" }}
+                        required
                     />
                 </Stack>
                 <Stack direction="row" alignItems="center" justifyContent="space-between">
@@ -79,10 +93,11 @@ export default function SearchInput() {
                         id="outlined-select-currency"
                         label="School"
                         select
-                        value={values.school}
+                        value={addFormData.school}
                         size="small"
                         onChange={handleInputChange}
                         sx={{ minWidth: "13rem" }}
+                        required
                     >
                         {schoolNames.map((option) => (
                             <MenuItem key={option.value} value={option.value}>
@@ -96,15 +111,15 @@ export default function SearchInput() {
                         Class
                     </Typography>
                     <TextField
-                        name="class"
+                        name="classes"
                         id="outlined-select-currency"
                         label="Class"
                         select
-                        value={values.class}
-                        default={values.class}
+                        value={addFormData.classes}
                         size="small"
                         onChange={handleInputChange}
                         sx={{ minWidth: "13rem" }}
+                        required
                     >
                         {classNames.map((option) => (
                             <MenuItem key={option.value} value={option.value}>
@@ -122,10 +137,11 @@ export default function SearchInput() {
                         id="outlined-select-currency"
                         label="Division"
                         select
-                        value={values.division}
+                        value={addFormData.division}
                         size="small"
                         onChange={handleInputChange}
                         sx={{ minWidth: "13rem" }}
+                        required
                     >
                         {divisions.map((option) => (
                             <MenuItem key={option.value} value={option.value}>
@@ -141,11 +157,12 @@ export default function SearchInput() {
                     <FormControl sx={{ paddingRight: "1.5rem" }}>
                         <RadioGroup
                             row
-                            aria-labelledby="row-radio-buttons-group-label"
-                            name="row-radio-buttons-group"
+                            name="status"
+                            value={addFormData.status}
+                            onChange={handleInputChange}
                         >
-                            <FormControlLabel value="active" control={<Radio size="small" />} label="Active" />
-                            <FormControlLabel value="invoice" control={<Radio size="small" />} label="Invoice" />
+                            <FormControlLabel required value="Active" control={<Radio size="small" />} label="Active" />
+                            <FormControlLabel required value="Invoice" control={<Radio size="small" />} label="Invoice" />
                         </RadioGroup>
                     </FormControl>
                 </Stack>
@@ -153,7 +170,7 @@ export default function SearchInput() {
                     <Typography component="h6">
                     </Typography>
                     <Stack >
-                        <Button variant="contained" color="error" sx={{ width: "13rem", margin: "0rem", padding: ".5rem .1rem", backgroundColor: "#941919", letterSpacing: "2px", textTransform: 'capitalize' }}>
+                        <Button variant="contained" color="error" sx={{ width: "13rem", margin: "0rem", padding: ".5rem .1rem", backgroundColor: "#941919", letterSpacing: "2px", textTransform: 'capitalize' }} type="submit">
                             Save
                         </Button>
                     </Stack>
