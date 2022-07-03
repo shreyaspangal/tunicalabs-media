@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 
-export default function Home() {
+export default function Home({ data }) {
 
     let navigate = useNavigate();
 
@@ -21,7 +21,7 @@ export default function Home() {
             <Box display="flex" justifyContent="center" alignItems="start" height="40vh">
                 <Stack direction="column" spacing={4}>
                     <Stack>
-                        <Button variant="contained" color="error" onClick={() => { navigate("/signup") }} endIcon={<ChevronRightIcon />}>Go to Signup </Button>
+                        <Button variant="contained" color="error" onClick={() => { navigate("/signup") }} endIcon={<ChevronRightIcon />}>Go to Signup  </Button>
                     </Stack>
                     <Stack>
                         <Button variant="contained" color="error" onClick={() => navigate("/signin")} endIcon={<ChevronRightIcon />}>Go to Signin </Button>
