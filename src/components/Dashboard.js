@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import CssBaseline from '@mui/material/CssBaseline';
 
-
+// Components
 import Header from './Header';
 import SideMenu from './SideMenu';
 import ViewStudents from '../pages/Students/ViewStudents';
 import AddStudent from '../pages/Students/AddStudents';
 
+// Data
+import data from "../db/data.json"
 
 export default function Dashboard() {
 
     let location = window.location.pathname;
+
+    const [tableData, setTableData] = useState(data);
 
     return (
         <Box>
@@ -24,9 +28,9 @@ export default function Dashboard() {
                     </Box>
                     <Box sx={{ marginLeft: "2rem" }} width="100%">
                         {location === "/viewstudent" ? (
-                            <ViewStudents />
+                            <ViewStudents tableData={tableData} setTableData={setTableData} />
                         ) : (
-                            <AddStudent />
+                            <AddStudent tableData={tableData} setTableData={setTableData} />
                         )}
                     </Box>
                 </Box>
