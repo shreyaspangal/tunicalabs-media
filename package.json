@@ -24,8 +24,8 @@
     "web-vitals": "^2.1.4"
   },
   "engines": {
-    "node": ">= 6.0.0",
-    "npm": ">= 3.0.0"
+    "node": ">= 16.0.0",
+    "npm": ">= 8.0.0"
   },
   "scripts": {
     "start": "set PORT=3003 && react-scripts start",
