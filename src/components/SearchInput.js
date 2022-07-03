@@ -1,7 +1,6 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-// import { schoolNames, classNames, divisions } from '../DB/InputData';
-import { schoolNames, classNames, divisions } from '../DB/FormData';
+import { schoolNames, classNames, divisions } from '../db/FormData';
 import { Stack, TextField, Button, MenuItem, Grid, Paper, Box } from '@mui/material';
 
 const SearchButton = styled(Button)({
@@ -16,26 +15,7 @@ const SearchButton = styled(Button)({
     fontFamily: ["Open Sans", "sans-serif"]
 });
 
-
-const InitialFValues = {
-    name: "",
-    age: "",
-    school: "",
-    class: "",
-    division: ""
-};
-
-export default function SearchInput() {
-
-    const [values, setValues] = React.useState(InitialFValues);
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setValues({
-            ...values,
-            [name]: value
-        });
-    }
+export default function SearchInput({ searchInput, handleInputChange, handleSearchClick }) {
 
     return (
         <form>
@@ -45,7 +25,7 @@ export default function SearchInput() {
                         name="name"
                         variant="outlined"
                         label="Name"
-                        value={values.name}
+                        value={searchInput.name}
                         size="small"
                         onChange={handleInputChange}
                     />
@@ -53,7 +33,7 @@ export default function SearchInput() {
                         name="age"
                         variant="outlined"
                         label="Age"
-                        value={values.age}
+                        value={searchInput.age}
                         size="small"
                         onChange={handleInputChange}
                         type="number"
@@ -63,9 +43,8 @@ export default function SearchInput() {
                         id="outlined-select-currency"
                         label="School"
                         select
-                        value={values.school}
+                        value={searchInput.school}
                         size="small"
-                        // helperText="Select your School"
                         onChange={handleInputChange}
                         sx={{ minWidth: "10rem" }}
                     >
@@ -76,14 +55,12 @@ export default function SearchInput() {
                         ))}
                     </TextField>
                     <TextField
-                        name="class"
+                        name="classes"
                         id="outlined-select-currency"
                         label="Class"
                         select
-                        value={values.class}
-                        default={values.class}
+                        value={searchInput.classes}
                         size="small"
-                        // helperText="Select your class"
                         onChange={handleInputChange}
                         sx={{ minWidth: "10rem" }}
                     >
@@ -98,9 +75,8 @@ export default function SearchInput() {
                         id="outlined-select-currency"
                         label="Division"
                         select
-                        value={values.division}
+                        value={searchInput.division}
                         size="small"
-                        // helperText="Select your division"
                         onChange={handleInputChange}
                         sx={{ minWidth: "10rem" }}
                     >
@@ -111,7 +87,7 @@ export default function SearchInput() {
                         ))}
                     </TextField>
                 </Stack>
-                <SearchButton variant="contained" color="error" sx={{ bgcolor: "#781715" }}>
+                <SearchButton variant="contained" color="error" sx={{ bgcolor: "#781715" }} onClick={(event) => handleSearchClick(event)}>
                     Search
                 </SearchButton>
             </Stack>
