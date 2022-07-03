@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "name": "Raju Shukla",
+        "age": 13,
+        "school": "School 1",
+        "classes": 3,
+        "division": "A",
+        "status": "Active"
+    },
+    {
+        "id": 2,
+        "name": "Sarfaraz Ali",
+        "age": 12,
+        "school": "School 1",
+        "classes": 2,
+        "division": "B",
+        "status": "Active"
+    },
+    {
+        "id": 3,
+        "name": "Ram Nayar",
+        "age": 10,
+        "school": "School 4",
+        "classes": 1,
+        "division": "C",
+        "status": "Active"
+    },
+    {
+        "id": 4,
+        "name": "Chintan Kumar",
+        "age": 12,
+        "school": "School 2",
+        "classes": 2,
+        "division": "D",
+        "status": "Active"
+    },
+    {
+        "id": 5,
+        "name": "John Doe",
+        "age": 10,
+        "school": "School 3",
+        "classes": 1,
+        "division": "A",
+        "status": "Active"
+    },
+    {
+        "id": 6,
+        "name": "Rakesh Kumar",
+        "age": 10,
+        "school": "School 1",
+        "classes": 2,
+        "division": "B",
+        "status": "Active"
+    },
+    {
+        "id": 7,
+        "name": "Raju Rastogi",
+        "age": 10,
+        "school": "School 2",
+        "classes": 1,
+        "division": "C",
+        "status": "Active"
+    },
+    {
+        "id": 8,
+        "name": "Farhan Shree",
+        "age": 13,
+        "school": "School 3",
+        "classes": 3,
+        "division": "D",
+        "status": "Active"
+    },
+    {
+        "id": 9,
+        "name": "Funsuk Wangadu",
+        "age": 13,
+        "school": "School 1",
+        "classes": 3,
+        "division": "A",
+        "status": "Active"
+    },
+    {
+        "id": 10,
+        "name": "Priya Patel",
+        "age": 13,
+        "school": "School 2",
+        "classes": 3,
+        "division": "B",
+        "status": "Active"
+    }
+]
