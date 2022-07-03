@@ -1,38 +1,38 @@
 export const schoolNames = [
     {
-        value: "school1",
+        value: "School 1",
         label: "School 1"
     },
     {
-        value: "School2",
+        value: "School 2",
         label: "School 2"
     },
     {
-        value: "School3",
+        value: "School 3",
         label: "School 3"
     },
     {
-        value: "School4",
+        value: "School 4",
         label: "School 4"
     }
 ];
 
 export const classNames = [
     {
-        value: "class1",
-        label: "Class 1"
+        value: "1",
+        label: "1"
     },
     {
-        value: "class2",
-        label: "class 2"
+        value: "2",
+        label: "2"
     },
     {
-        value: "class3",
-        label: "class 3"
+        value: "3",
+        label: "3"
     },
     {
-        value: "class4",
-        label: "class 4"
+        value: "4",
+        label: "4"
     }
 ];
 export const divisions = [
