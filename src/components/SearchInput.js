@@ -2,6 +2,8 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import { schoolNames, classNames, divisions } from '../db/FormData';
 import { Stack, TextField, Button, MenuItem, Grid, Paper, Box } from '@mui/material';
+import Data from '../db/data.json';
+
 
 const SearchButton = styled(Button)({
     boxShadow: "none",
@@ -15,10 +17,10 @@ const SearchButton = styled(Button)({
     fontFamily: ["Open Sans", "sans-serif"]
 });
 
-export default function SearchInput({ searchInput, handleInputChange, handleSearchClick }) {
+export default function SearchInput({ searchInput, handleInputChange, handleSearchClick, handleRemoveClick, searchBtnFlag }) {
 
     return (
-        <form>
+        <form onSubmit={(event) => handleSearchClick(event)}>
             <Stack spacing={4} direction='row'>
                 <Stack direction='row' spacing={2}>
                     <TextField
@@ -28,6 +30,7 @@ export default function SearchInput({ searchInput, handleInputChange, handleSear
                         value={searchInput.name}
                         size="small"
                         onChange={handleInputChange}
+                        required
                     />
                     <TextField
                         name="age"
@@ -37,6 +40,7 @@ export default function SearchInput({ searchInput, handleInputChange, handleSear
                         size="small"
                         onChange={handleInputChange}
                         type="number"
+                        required
                     />
                     <TextField
                         name="school"
@@ -47,6 +51,7 @@ export default function SearchInput({ searchInput, handleInputChange, handleSear
                         size="small"
                         onChange={handleInputChange}
                         sx={{ minWidth: "10rem" }}
+                        required
                     >
                         {schoolNames.map((option) => (
                             <MenuItem key={option.value} value={option.value}>
@@ -63,6 +68,7 @@ export default function SearchInput({ searchInput, handleInputChange, handleSear
                         size="small"
                         onChange={handleInputChange}
                         sx={{ minWidth: "10rem" }}
+                        required
                     >
                         {classNames.map((option) => (
                             <MenuItem key={option.value} value={option.value}>
@@ -79,6 +85,7 @@ export default function SearchInput({ searchInput, handleInputChange, handleSear
                         size="small"
                         onChange={handleInputChange}
                         sx={{ minWidth: "10rem" }}
+                        required
                     >
                         {divisions.map((option) => (
                             <MenuItem key={option.value} value={option.value}>
@@ -87,9 +94,18 @@ export default function SearchInput({ searchInput, handleInputChange, handleSear
                         ))}
                     </TextField>
                 </Stack>
-                <SearchButton variant="contained" color="error" sx={{ bgcolor: "#781715" }} onClick={(event) => handleSearchClick(event)}>
-                    Search
-                </SearchButton>
+                {searchBtnFlag ? (
+                    <SearchButton variant="contained" color="error" sx={{ bgcolor: "#781715" }}
+                        onClick={(event) => handleRemoveClick(event)}>
+                        Remove
+                    </SearchButton>
+                ) : (
+                    <SearchButton variant="contained" color="error" sx={{ bgcolor: "#781715" }}
+                        type="Submit">
+                        Search
+                    </SearchButton>
+                )
+                }
             </Stack>
         </form >
     )
