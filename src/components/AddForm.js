@@ -3,7 +3,6 @@ import { schoolNames, classNames, divisions } from '../db/FormData';
 import { columns, rows, createData } from '../db/TableData';
 import { Stack, TextField, Button, MenuItem, Typography } from '@mui/material';
 import { Radio, RadioGroup, FormControlLabel, FormControl } from '@mui/material';
-import { useNavigate } from 'react-router-dom'
 
 const InitialFValues = {
     name: "",
@@ -15,10 +14,6 @@ const InitialFValues = {
 };
 
 export default function AddStudentForm({ tableData, setTableData }) {
-
-    const navigate = useNavigate();
-
-    // console.log(tableData)
 
     const [addFormData, setAddFormData] = React.useState(InitialFValues);
 

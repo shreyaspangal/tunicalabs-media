@@ -131,13 +131,13 @@ export default function ColumnGroupingTable({ tableData, setTableData, searchBtn
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {
+                        {   // If search filter fails to find data row, display error message
                             searchBtnFlag === "Failed" ? (
                                 <TableRow sx={{ height: "5rem" }}>
                                     <TableCell align="center" colSpan={9}>
-                                            <Typography display="flex" justifyContent="center" alignItems="center">
-                                                <SentimentVeryDissatisfiedIcon /> &nbsp; No Data Found!
-                                            </Typography>
+                                        <Typography display="flex" justifyContent="center" alignItems="center">
+                                            <SentimentVeryDissatisfiedIcon /> &nbsp; No Data Found!
+                                        </Typography>
                                     </TableCell>
                                 </TableRow>
                             ) : (

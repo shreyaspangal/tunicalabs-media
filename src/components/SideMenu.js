@@ -2,7 +2,7 @@ import React from 'react'
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import { Button, Box } from "@mui/material";
+import { Box } from "@mui/material";
 import { Link } from 'react-router-dom';
 
 export default function SideMenu() {

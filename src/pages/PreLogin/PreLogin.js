@@ -12,10 +12,6 @@ export default function PreLogin() {
 
   return (
     <Box>
-      {/* display="flex"
-      flexDirection="column"
-      justifyContent="space-between"
-      minHeight="100vh" */}
       <Header />
       <Box className="content">
         {location === "/signup" ? (

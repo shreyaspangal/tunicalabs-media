@@ -1,8 +1,7 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import { schoolNames, classNames, divisions } from '../db/FormData';
-import { Stack, TextField, Button, MenuItem, Grid, Paper, Box } from '@mui/material';
-import Data from '../db/data.json';
+import { Stack, TextField, Button, MenuItem } from '@mui/material';
 
 
 const SearchButton = styled(Button)({

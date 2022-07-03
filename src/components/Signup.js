@@ -1,10 +1,10 @@
 import React from 'react';
-import './Signup.css'
 import {
     Stack, TextField, Button, FormGroup,
     FormControlLabel, Checkbox
 } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom'
+import './Signup.css'
 
 
 export default function Signup() {
