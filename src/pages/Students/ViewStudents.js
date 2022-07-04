@@ -3,7 +3,7 @@ import Table from '../../components/Table';
 import Data from '../../db/data.json';
 import SearchInput from '../../components/SearchInput';
 import { Stack, Typography } from '@mui/material';
-// import TABLETOEXCEL from "react-html-table-to-excel";
+import TABLETOEXCEL from "react-html-table-to-excel";
 import "./downloadExcelBtn.css";
 
 
@@ -40,8 +40,6 @@ export default function viewStudents({ tableData, setTableData }) {
                 && row.classes === searchInput.classes
                 && row.division === searchInput.division)
         });
-        console.log("Filtered Table => \n", findTableRow)
-        console.log("Seach Input Value => \n", searchInput)
         // Validate
         if (findTableRow.length === 0) {
             setTableData(tableData) // Throw no match found error
@@ -72,12 +70,12 @@ export default function viewStudents({ tableData, setTableData }) {
             </Stack>
             {/* Download Excel Table */}
             <Stack sx={{ marginTop: "2rem", marginBottom: "3rem" }}>
-                {/* <TABLETOEXCEL
+                <TABLETOEXCEL
                     className="download-excel-btn"
                     table="table-id"
                     filename="Student Table Excel"
                     sheet="Sheet"
-                    buttonText="Download Excel" /> */}
+                    buttonText="Download Excel" />
             </Stack>
         </Stack>
     )
