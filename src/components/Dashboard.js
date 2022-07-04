@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import CssBaseline from '@mui/material/CssBaseline';
-
+// Data
+import Data from '../db/data.json';
 // Components
 import Header from './Header';
 import SideMenu from './SideMenu';
 import ViewStudents from '../pages/Students/ViewStudents';
 import AddStudent from '../pages/Students/AddStudents';
-
-// Data
-import Data from "../db/data.json"
 
 export default function Dashboard() {
 
