@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import CssBaseline from '@mui/material/CssBaseline';
 // Data
-import Data from '../db/data.json';
+import Data from '../DB/data.json';
 // Components
 import Header from './Header';
 import SideMenu from './SideMenu';

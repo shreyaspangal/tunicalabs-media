@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Table from '../../components/Table';
-import Data from '../../db/data.json';
+import Data from '../../DB/data.json';
 import SearchInput from '../../components/SearchInput';
 import { Stack, Typography } from '@mui/material';
 import { CSVLink } from "react-csv";
