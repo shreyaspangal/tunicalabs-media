@@ -2,6 +2,9 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import { schoolNames, classNames, divisions } from '../DB/FormData';
 import { Stack, TextField, Button, MenuItem } from '@mui/material';
+// Icons
+import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 const SearchButton = styled(Button)({
@@ -95,12 +98,12 @@ export default function SearchInput({ searchInput, handleInputChange, handleSear
                 </Stack>
                 {searchBtnFlag ? (
                     <SearchButton variant="contained" color="error" sx={{ bgcolor: "#781715" }}
-                        onClick={(event) => handleRemoveClick(event)}>
+                        onClick={(event) => handleRemoveClick(event)} startIcon={<CloseIcon />}>
                         Remove
                     </SearchButton>
                 ) : (
                     <SearchButton variant="contained" color="error" sx={{ bgcolor: "#781715" }}
-                        type="Submit">
+                        type="Submit" startIcon={<SearchIcon />}>
                         Search
                     </SearchButton>
                 )
