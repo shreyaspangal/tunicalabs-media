@@ -1,7 +1,10 @@
 .download-excel-btn {
+    display: block;
+    text-decoration: none;
+    text-align: center;
     width: 13rem;
     margin: 0rem;
-    padding: .8rem .1rem;
+    padding: .8rem 0rem;
     background-color: #781715;
     color: white;
     border-color: transparent;

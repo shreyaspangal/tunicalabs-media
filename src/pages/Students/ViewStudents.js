@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Table from '../../components/Table';
 import Data from '../../db/data.json';
 import SearchInput from '../../components/SearchInput';
-import { Stack, Typography } from '@mui/material';
-import TABLETOEXCEL from "react-html-table-to-excel";
+import { Stack, Typography, Box } from '@mui/material';
+import { CSVLink } from "react-csv";
 import "./downloadExcelBtn.css";
 
 
@@ -70,12 +70,13 @@ export default function viewStudents({ tableData, setTableData }) {
             </Stack>
             {/* Download Excel Table */}
             <Stack sx={{ marginTop: "2rem", marginBottom: "3rem" }}>
-                <TABLETOEXCEL
+                <CSVLink
+                    data={Data}
+                    filename={"students-table.csv"}
                     className="download-excel-btn"
-                    table="table-id"
-                    filename="Student Table Excel"
-                    sheet="Sheet"
-                    buttonText="Download Excel" />
+                >
+                    Download Excel
+                </CSVLink>
             </Stack>
         </Stack>
     )
