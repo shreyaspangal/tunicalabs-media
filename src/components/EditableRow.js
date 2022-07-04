@@ -35,7 +35,7 @@ export default function EditableRow({ row, editFormData, handleEditFormChange, h
                     size="small"
                     onChange={handleEditFormChange}
                     type="number"
-                    sx={{ maxWidth: "5rem" }}
+                    sx={{ maxWidth: "4rem" }}
                     required
                 />
             </TableCell>
@@ -67,7 +67,7 @@ export default function EditableRow({ row, editFormData, handleEditFormChange, h
                     value={editFormData.classes}
                     size="small"
                     onChange={handleEditFormChange}
-                    sx={{ minWidth: "7rem" }}
+                    sx={{ minWidth: "4rem" }}
                     required
                 >
                     {classNames.map((option) => (
@@ -86,7 +86,7 @@ export default function EditableRow({ row, editFormData, handleEditFormChange, h
                     value={editFormData.division}
                     size="small"
                     onChange={handleEditFormChange}
-                    sx={{ minWidth: "7rem" }}
+                    sx={{ minWidth: "5rem" }}
                     required
                 >
                     {divisions.map((option) => (
