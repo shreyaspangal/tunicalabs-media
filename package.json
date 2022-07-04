@@ -1,5 +1,4 @@
 {
-  "homepage": "http://shreyaspangal.github.io/tunicalabs-dashboard",
   "name": "tunicalabs-assignment",
   "version": "0.1.0",
   "engines": {
@@ -29,8 +28,6 @@
   },
   "scripts": {
     "start": "set PORT=3003 && react-scripts start",
-    "prestart": "npm run build",
-    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
