@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Table from '../../components/Table';
 import Data from '../../db/data.json';
 import SearchInput from '../../components/SearchInput';
-import { Stack, Typography, Box } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import { CSVLink } from "react-csv";
 import "./downloadExcelBtn.css";
 
@@ -28,21 +28,21 @@ export default function viewStudents({ tableData, setTableData }) {
         });
     }
 
+
     // Filter Table Functionality
     const handleSearchClick = (event) => {
         event.preventDefault();
-        const newTableData = [...tableData];
 
-        let findTableRow = newTableData.filter((row) => {
+        let findTableRow = tableData.filter((row) => {
             return (row.name === searchInput.name
                 && Number(row.age) === Number(searchInput.age)
                 && row.school === searchInput.school
                 && row.classes === searchInput.classes
                 && row.division === searchInput.division)
         });
-        // Validate
+        // Filter
         if (findTableRow.length === 0) {
-            setTableData(tableData) // Throw no match found error
+            // Throw no match found error
             setSearchBtnFlag("Failed") // Switch to Remove Btn
         } else {
             setTableData(findTableRow); // Update table rows

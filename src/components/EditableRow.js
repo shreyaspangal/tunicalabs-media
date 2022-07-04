@@ -1,10 +1,9 @@
 import React from 'react';
 import { TableRow, TableCell } from '@mui/material';
-import { Stack, TextField, Button, MenuItem, Typography } from '@mui/material';
-import { Radio, RadioGroup, FormControlLabel, FormControl, Input } from '@mui/material';
+import { TextField, Button, MenuItem } from '@mui/material';
+import { Radio, RadioGroup, FormControlLabel, FormControl } from '@mui/material';
 
 // Data
-import { columns } from '../db/TableData';
 import { schoolNames, classNames, divisions } from '../db/FormData';
 
 

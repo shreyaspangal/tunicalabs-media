@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Table, Box, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { Table, Typography } from "@mui/material";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-// Redirection
-import { Link } from "react-router-dom";
 // Data
-import { columns, rows } from "../db/TableData";
+import { columns } from "../db/TableData";
 // Row Components
 import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow";
