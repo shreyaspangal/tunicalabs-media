@@ -10,13 +10,13 @@ import ViewStudents from '../pages/Students/ViewStudents';
 import AddStudent from '../pages/Students/AddStudents';
 
 // Data
-import data from "../db/data.json"
+import Data from "../db/data.json"
 
 export default function Dashboard() {
 
     let location = window.location.pathname;
 
-    const [tableData, setTableData] = useState(data);
+    const [tableData, setTableData] = useState(Data);
 
     return (
         <Box>
