@@ -4,7 +4,7 @@ import { TextField, Button, MenuItem } from '@mui/material';
 import { Radio, RadioGroup, FormControlLabel, FormControl } from '@mui/material';
 
 // Data
-import { schoolNames, classNames, divisions } from '../db/FormData';
+import { schoolNames, classNames, divisions } from '../DB/FormData';
 
 
 

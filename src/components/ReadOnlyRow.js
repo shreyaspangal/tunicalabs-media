@@ -1,6 +1,6 @@
 import React from 'react';
 import { TableRow, TableCell, Button } from '@mui/material';
-import { columns } from '../db/TableData';
+import { columns } from '../DB/TableData';
 
 export default function ReadOnlyRow({ row, handleEditClick, handleDeleteClick }) {
 

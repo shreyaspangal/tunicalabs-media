@@ -1,5 +1,5 @@
 import React from 'react';
-import { schoolNames, classNames, divisions } from '../db/FormData';
+import { schoolNames, classNames, divisions } from '../DB/FormData';
 import { Stack, TextField, Button, MenuItem, Typography } from '@mui/material';
 import { Radio, RadioGroup, FormControlLabel, FormControl } from '@mui/material';
 

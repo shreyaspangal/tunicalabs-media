@@ -54,7 +54,7 @@ export default function viewStudents({ tableData, setTableData }) {
         event.preventDefault();
         setSearchInput(InitialFValues); // Reset form values
         setSearchBtnFlag(false) // Switch to Search Btn
-        setTableData(Data); // Re-fill the table with db/data.json data
+        setTableData(Data); // Re-fill the table with DB/data.json data
     }
 
     return (
