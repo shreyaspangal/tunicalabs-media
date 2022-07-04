@@ -7,7 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 // Data
-import { columns } from "../db/TableData";
+import { columns } from "../DB/TableData";
 // Row Components
 import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow";
