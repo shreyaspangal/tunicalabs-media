@@ -4,6 +4,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { Avatar, Button, Stack, Typography } from "@mui/material";
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -14,6 +16,18 @@ export default function Header() {
     let navigate = useNavigate();
     let location = window.location.pathname;
 
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = (label) => {
+        if (label === 'logout') {
+            navigate("/signin")
+        }
+        setAnchorEl(null);
+    };
+
     return (
         <Box className="header">
             <Box className="header-title" sx={{ paddingLeft: "2rem" }}>
@@ -21,11 +35,6 @@ export default function Header() {
                     <h1>TUNICALABS MEDIA</h1>
                 </Link>
             </Box>
-            {location !== '/' && (
-                <Stack sx={{ paddingRight: "2rem" }}>
-                    <Button variant="contained" color="error" onClick={() => navigate("/")}>Home</Button>
-                </Stack>
-            )}
             {(location !== '/signup' && location !== '/signin') && (
                 <Stack direction="row" spacing={1} alignItems="center" sx={{ paddingRight: "2rem" }}>
                     <IconButton
@@ -47,8 +56,41 @@ export default function Header() {
                             textDecoration: 'none',
                             paddingLeft: ".5rem"
                         }}
-                        >Rajan</Typography>
-                        < KeyboardArrowDownIcon />
+                        >Rajan
+                        </Typography>
+                        {/* Dropdown */}
+                        <Button
+                            id="basic-button"
+                            aria-controls={open ? 'basic-menu' : undefined}
+                            aria-haspopup="true"
+                            aria-expanded={open ? 'true' : undefined}
+                            onClick={handleClick}
+                            style={{
+                                color: 'white',
+                            }}
+                        >
+                            < KeyboardArrowDownIcon />
+                        </Button>
+                        <Menu
+                            id="basic-menu"
+                            anchorEl={anchorEl}
+                            open={open}
+                            onClose={handleClose}
+                            MenuListProps={{
+                                'aria-labelledby': 'basic-button',
+                            }}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'right',
+                            }}
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                        >
+                            <MenuItem onClick={() => handleClose("my account")}>My account</MenuItem>
+                            <MenuItem onClick={() => handleClose("logout")}>Logout</MenuItem>
+                        </Menu>
                     </Stack>
                 </Stack>
             )
