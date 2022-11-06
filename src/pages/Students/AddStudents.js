@@ -3,7 +3,7 @@ import AddForm from '../../components/AddForm';
 import { Stack, Typography } from '@mui/material';
 
 
-export default function AddStudents({ tableData, setTableData }) {
+export default function AddStudents({ tableData, saveToLocalStorage }) {
 
     // console.log(tableData)
 
@@ -13,7 +13,7 @@ export default function AddStudents({ tableData, setTableData }) {
                 <Typography component="h2" color="#Ff0006" m="1.5rem 0" sx={{ fontWeight: "400", fontSize: "22px" }}>Add Student</Typography>
             </Stack>
             <Stack >
-                <AddForm tableData={tableData} setTableData={setTableData} />
+                <AddForm tableData={tableData} saveToLocalStorage={saveToLocalStorage} />
             </Stack>
         </Stack>
     )

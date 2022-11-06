@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Table from '../../components/Table';
 import Data from '../../DB/data.json';
 import SearchInput from '../../components/SearchInput';
@@ -6,19 +6,7 @@ import { Stack, Typography } from '@mui/material';
 import { CSVLink } from "react-csv";
 import "./downloadExcelBtn.css";
 
-
-const InitialFValues = {
-    name: "",
-    age: "",
-    school: "",
-    classes: "",
-    division: ""
-};
-
-export default function viewStudents({ tableData, setTableData }) {
-
-    const [searchInput, setSearchInput] = useState(InitialFValues);
-    const [searchBtnFlag, setSearchBtnFlag] = useState(false);
+export default function viewStudents({ tableData, saveToLocalStorage, searhState: { searchInput, setSearchInput, searchBtnFlag, setSearchBtnFlag, InitialFValues } }) {
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -28,25 +16,26 @@ export default function viewStudents({ tableData, setTableData }) {
         });
     }
 
+    let findTableRow = tableData.filter((row) => {
+        return (row.name.includes(searchInput.name.trim())
+            || Number(row.age) === Number(searchInput.age)
+            || row.school === searchInput.school
+            || row.classes === searchInput.classes
+            || row.division === searchInput.division
+            || row.status === searchInput.status)
+    });
+
+    // Filter
+    let displayTableData = !searchBtnFlag ? tableData : findTableRow;
 
     // Filter Table Functionality
     const handleSearchClick = (event) => {
         event.preventDefault();
-
-        let findTableRow = tableData.filter((row) => {
-            return (row.name === searchInput.name
-                && Number(row.age) === Number(searchInput.age)
-                && row.school === searchInput.school
-                && row.classes === searchInput.classes
-                && row.division === searchInput.division)
-        });
-        // Filter
         if (findTableRow.length === 0) {
             // Throw no match found error
             setSearchBtnFlag("Failed") // Switch to Remove Btn
         } else {
-            setTableData(findTableRow); // Update table rows
-            setSearchBtnFlag(true) // Switch to Remove Btn
+            setSearchBtnFlag(true); // Switch to Search Btn
         }
     }
 
@@ -54,7 +43,6 @@ export default function viewStudents({ tableData, setTableData }) {
         event.preventDefault();
         setSearchInput(InitialFValues); // Reset form values
         setSearchBtnFlag(false) // Switch to Search Btn
-        setTableData(Data); // Re-fill the table with DB/data.json data
     }
 
     return (
@@ -66,7 +54,7 @@ export default function viewStudents({ tableData, setTableData }) {
                 <SearchInput searchInput={searchInput} handleInputChange={handleInputChange} handleSearchClick={handleSearchClick} handleRemoveClick={handleRemoveClick} searchBtnFlag={searchBtnFlag} />
             </Stack>
             <Stack sx={{ marginTop: "2rem" }}>
-                <Table tableData={tableData} setTableData={setTableData} searchBtnFlag={searchBtnFlag} />
+                <Table tableData={tableData} saveToLocalStorage={saveToLocalStorage} searchBtnFlag={searchBtnFlag} displayTableData={displayTableData} />
             </Stack>
             {/* Download Excel Table */}
             <Stack sx={{ marginTop: "2rem", marginBottom: "3rem" }}>

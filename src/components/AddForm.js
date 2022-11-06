@@ -12,7 +12,7 @@ const InitialFValues = {
     status: "",
 };
 
-export default function AddStudentForm({ tableData, setTableData }) {
+export default function AddStudentForm({ tableData, saveToLocalStorage }) {
 
     const [addFormData, setAddFormData] = React.useState(InitialFValues);
 
@@ -39,7 +39,7 @@ export default function AddStudentForm({ tableData, setTableData }) {
         }
         const newTableRow = [...tableData, newTableData];
         // Add new table row data
-        setTableData(newTableRow);
+        saveToLocalStorage('studentsData', newTableRow);
         //Reset form values to empty
         setAddFormData(InitialFValues)
     }

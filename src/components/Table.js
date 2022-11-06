@@ -15,7 +15,7 @@ import EditableRow from "./EditableRow";
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 
 
-export default function ColumnGroupingTable({ tableData, setTableData, searchBtnFlag }) {
+export default function ColumnGroupingTable({ tableData, saveToLocalStorage, searchBtnFlag, displayTableData }) {
 
     // ReadOnly Mode State
     const [editStudentId, setEditStudentId] = useState(null);
@@ -55,7 +55,7 @@ export default function ColumnGroupingTable({ tableData, setTableData, searchBtn
 
         newTableData.splice(index, 1);
 
-        setTableData(newTableData);
+        saveToLocalStorage('studentsData', newTableData);
     }
 
     // Edit Mode Method
@@ -89,7 +89,7 @@ export default function ColumnGroupingTable({ tableData, setTableData, searchBtn
 
         newFormData[index] = editedFormData;
 
-        setTableData(newFormData);
+        saveToLocalStorage('studentsData', newFormData);
         setEditStudentId(null);
     }
 
@@ -139,7 +139,7 @@ export default function ColumnGroupingTable({ tableData, setTableData, searchBtn
                                     </TableCell>
                                 </TableRow>
                             ) : (
-                                tableData
+                                displayTableData
                                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                     .map((row) => {
                                         return (
@@ -159,7 +159,7 @@ export default function ColumnGroupingTable({ tableData, setTableData, searchBtn
             <TablePagination
                 rowsPerPageOptions={[5, 10]}
                 component="div"
-                count={tableData.length}
+                count={displayTableData.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}

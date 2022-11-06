@@ -10,11 +10,31 @@ import SideMenu from './SideMenu';
 import ViewStudents from '../pages/Students/ViewStudents';
 import AddStudent from '../pages/Students/AddStudents';
 
+const InitialFValues = {
+    name: "",
+    age: "",
+    school: "",
+    classes: "",
+    division: "",
+    status: ""
+};
+
 export default function Dashboard() {
 
     let location = window.location.pathname;
 
-    const [tableData, setTableData] = useState(Data);
+    const [tableData, setTableData] = useState(JSON.parse(localStorage.getItem('studentsData')) || Data);
+    const [searchInput, setSearchInput] = useState(InitialFValues);
+    const [searchBtnFlag, setSearchBtnFlag] = useState(false);
+
+    const searhState = { searchInput, setSearchInput, searchBtnFlag, setSearchBtnFlag, InitialFValues }
+
+    const saveToLocalStorage = (key /* String "" */, value /* Any */, fn = setTableData /* Function (){} */) => {
+        // Update state variable
+        fn(value);
+        // Save new data to local storage from state variable
+        localStorage.setItem(key, JSON.stringify(value));
+    }
 
     return (
         <Box>
@@ -26,9 +46,9 @@ export default function Dashboard() {
                     </Box>
                     <Box sx={{ marginLeft: "2rem" }} width="100%">
                         {location === "/viewstudent" ? (
-                            <ViewStudents tableData={tableData} setTableData={setTableData} />
+                            <ViewStudents tableData={tableData} saveToLocalStorage={saveToLocalStorage} searhState={searhState} />
                         ) : (
-                            <AddStudent tableData={tableData} setTableData={setTableData} />
+                            <AddStudent tableData={tableData} saveToLocalStorage={saveToLocalStorage} />
                         )}
                     </Box>
                 </Box>
