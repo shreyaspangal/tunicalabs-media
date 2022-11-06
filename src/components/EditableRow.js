@@ -8,7 +8,7 @@ import { schoolNames, classNames, divisions } from '../DB/FormData';
 
 
 
-export default function EditableRow({ row, editFormData, handleEditFormChange, handleCancelClick }) {
+export default function EditableRow({ row, editFormData, handleEditFormChange, handleCancelClick, handleEditFormSubmit }) {
     return (
         <TableRow key={row.id} sx={{ '&:nth-of-type(odd)': { bgcolor: '#Fbe9e9' } }}>
             <TableCell>
@@ -111,7 +111,7 @@ export default function EditableRow({ row, editFormData, handleEditFormChange, h
                 </FormControl>
             </TableCell >
             <TableCell sx={{ minWidth: 30, paddingRight: "0rem", textAlign: "right" }}>
-                <Button sx={{ color: '#5db7e9' }} type="Submit">Save</Button>
+                <Button sx={{ color: '#5db7e9' }} type="Submit" onClick={handleEditFormSubmit}>Save</Button>
             </TableCell>
             <TableCell sx={{ minWidth: 30, paddingRight: "0rem", textAlign: "left" }}>
                 <Button sx={{ color: '#5db7e9' }} onClick={handleCancelClick}>Cancel</Button>
