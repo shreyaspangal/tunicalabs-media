@@ -53,3 +53,14 @@ export const divisions = [
         label: "D"
     }
 ];
+
+export const status = [
+    {
+        value: "Active",
+        label: "Active"
+    },
+    {
+        value: "Invoice",
+        label: "Invoice"
+    }
+]

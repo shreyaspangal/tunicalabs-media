@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { schoolNames, classNames, divisions } from '../DB/FormData';
+import { schoolNames, classNames, divisions, status } from '../DB/FormData';
 import { Stack, TextField, Button, MenuItem } from '@mui/material';
 // Icons
 import SearchIcon from '@mui/icons-material/Search';
@@ -22,7 +22,7 @@ const SearchButton = styled(Button)({
 export default function SearchInput({ searchInput, handleInputChange, handleSearchClick, handleRemoveClick, searchBtnFlag }) {
 
     return (
-        <form onSubmit={(event) => handleSearchClick(event)}>
+        <form onSubmit={(event) => handleSearchClick(event)} >
             <Stack spacing={4} direction='row'>
                 <Stack direction='row' spacing={2}>
                     <TextField
@@ -33,6 +33,7 @@ export default function SearchInput({ searchInput, handleInputChange, handleSear
                         size="small"
                         onChange={handleInputChange}
                         required
+                        sx={{ minWidth: "10rem" }}
                     />
                     <TextField
                         name="age"
@@ -42,7 +43,6 @@ export default function SearchInput({ searchInput, handleInputChange, handleSear
                         size="small"
                         onChange={handleInputChange}
                         type="number"
-                        required
                     />
                     <TextField
                         name="school"
@@ -53,7 +53,6 @@ export default function SearchInput({ searchInput, handleInputChange, handleSear
                         size="small"
                         onChange={handleInputChange}
                         sx={{ minWidth: "10rem" }}
-                        required
                     >
                         {schoolNames.map((option) => (
                             <MenuItem key={option.value} value={option.value}>
@@ -69,8 +68,7 @@ export default function SearchInput({ searchInput, handleInputChange, handleSear
                         value={searchInput.classes}
                         size="small"
                         onChange={handleInputChange}
-                        sx={{ minWidth: "10rem" }}
-                        required
+                        sx={{ minWidth: "7rem" }}
                     >
                         {classNames.map((option) => (
                             <MenuItem key={option.value} value={option.value}>
@@ -86,10 +84,25 @@ export default function SearchInput({ searchInput, handleInputChange, handleSear
                         value={searchInput.division}
                         size="small"
                         onChange={handleInputChange}
-                        sx={{ minWidth: "10rem" }}
-                        required
+                        sx={{ minWidth: "7rem" }}
                     >
                         {divisions.map((option) => (
+                            <MenuItem key={option.value} value={option.value}>
+                                {option.label}
+                            </MenuItem>
+                        ))}
+                    </TextField>
+                    <TextField
+                        name="status"
+                        id="outlined-select-currency"
+                        label="Status"
+                        select
+                        value={searchInput.status}
+                        size="small"
+                        onChange={handleInputChange}
+                        sx={{ minWidth: "7rem" }}
+                    >
+                         {status.map((option) => (
                             <MenuItem key={option.value} value={option.value}>
                                 {option.label}
                             </MenuItem>
